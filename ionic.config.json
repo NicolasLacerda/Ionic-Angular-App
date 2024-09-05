@@ -1,0 +1,7 @@
+{
+  "name": "brazwrap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
