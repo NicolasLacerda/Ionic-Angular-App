@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+  <WebView
+    android:id="@+id/webView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#000000">
+
+  </WebView>
+
+  <TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="42dp"
+    android:fontFamily="@font/poppins"
+    android:text="@string/nicolas_lacerda"
+    android:textColor="#FFFFFF"
+    android:textSize="16sp"
+    app:layout_anchor="@+id/webView"
+    app:layout_anchorGravity="bottom|center" />
+
+  <TextView
+    android:id="@+id/textView6"
+    android:layout_width="wrap_content"
+    android:layout_height="47dp"
+    android:fontFamily="@font/poppins"
+    android:text="@string/design_by"
+    android:textColor="#FFFFFF"
+    android:textSize="16sp"
+    app:layout_anchor="@+id/textView5"
+    app:layout_anchorGravity="top|center" />
+
+  <ImageView
+    android:id="@+id/imageView5"
+    android:layout_width="182dp"
+    android:layout_height="120dp"
+    android:contentDescription="@string/todo"
+    android:visibility="visible"
+    app:layout_anchor="@+id/webView"
+    app:layout_anchorGravity="center"
+    app:srcCompat="@drawable/splash_screen"
+    tools:visibility="visible" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

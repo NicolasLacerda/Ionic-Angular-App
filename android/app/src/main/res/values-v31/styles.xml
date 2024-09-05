@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="mySplash" parent="Theme.SplashScreen">
+    <item name="android:windowSplashScreenBackground">#000000</item>
+    <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
+    <item name="android:windowTransitionBackgroundFadeDuration">0</item>
+  </style>
+</resources>
