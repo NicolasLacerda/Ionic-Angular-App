@@ -6,6 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NativePageTransitions } from '@awesome-cordova-plugins/native-page-transitions';
 
 @NgModule({
   declarations: [AppComponent],

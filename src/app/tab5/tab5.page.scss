@@ -1,0 +1,69 @@
+main {
+  background-image: url(https://img.freepik.com/free-photo/vertical-shot-monorail-bridge-street-captured-sunny-day-chicago_181624-36898.jpg?t=st=1725645062~exp=1725648662~hmac=16746d7a37c54ae4e2ca39149f7d88d5ab781385f10cae5f38e81dd1eb8b1f7e&w=740);
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-bar-showroom {
+  height: 4.4rem;
+  width: 100%;
+  border-radius: 0px 0px 30px 30px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.showroom-btn {
+  background-color: #49ade7;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 500px;
+}
+
+.car {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.colors-container {
+  width: 100%;
+  background-color: white;
+  height: 7rem;
+  border-radius: 30px 30px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colors {
+  width: 80%;
+  height: 3rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 0px 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colors-item {
+  width: 2rem;
+  height: 2rem;
+  background-color: bisque;
+  border-radius: 10px;
+}
+
+.colors:active {
+  border: 1px solid #49ade7;
+}

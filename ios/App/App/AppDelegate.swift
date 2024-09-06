@@ -5,8 +5,20 @@ import Capacitor
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var nativescript: NativeScript?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // NativeScript init
+        let nsConfig = Config.init()
+        nsConfig.metadataPtr = runtimeMeta()
+        // can turn off in production
+        nsConfig.isDebug = true
+        nsConfig.logToSystemConsole = nsConfig.isDebug
+        nsConfig.baseDir = URL(string: "public", relativeTo: Bundle.main.resourceURL)?.path
+        nsConfig.applicationPath = "nativescript"
+        self.nativescript = NativeScript.init(config: nsConfig)
+
+        self.nativescript?.runMainApplication()
         // Override point for customization after application launch.
         return true
     }
