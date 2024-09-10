@@ -4,7 +4,4 @@
     <string name="title_activity_main">BrazWrap</string>
     <string name="package_name">io.ionic.starter</string>
     <string name="custom_url_scheme">io.ionic.starter</string>
-    <string name="nicolas_lacerda">Nicolas Lacerda</string>
-    <string name="design_by">Design by</string>
-    <string name="todo">TODO</string>
 </resources>
