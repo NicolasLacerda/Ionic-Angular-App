@@ -12,5 +12,12 @@
     "brand": "seat",
     "name": "Ibiza",
     "year": 2023
+  },
+  {
+    "id": 3,
+    "image": "duster.png",
+    "brand": "dacia",
+    "name": "Duster",
+    "year": 2024
   }
 ]

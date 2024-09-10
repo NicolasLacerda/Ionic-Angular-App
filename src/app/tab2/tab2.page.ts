@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CarComponent } from '../car/car.component';
 
 @Component({
   selector: 'app-tab2',
