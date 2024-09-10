@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "image": "arona.png",
+    "brand": "seat",
+    "name": "Arona",
+    "year": 2023
+  },
+  {
+    "id": 2,
+    "image": "ibiza.png",
+    "brand": "seat",
+    "name": "Ibiza",
+    "year": 2023
+  }
+]

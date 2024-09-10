@@ -1,3 +1,12 @@
+ul {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  padding-inline-start: 0 !important;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -6,7 +15,6 @@ main {
   margin-top: 5.6rem;
   width: 100%;
   flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
 .container {
@@ -17,10 +25,6 @@ main {
   gap: 1.8rem;
 }
 
-.container:last-child {
-  margin-bottom: 1.8rem;
-}
-
 .image-container {
   display: flex;
   justify-content: center;
@@ -28,12 +32,18 @@ main {
   width: 18vh;
   height: 100%;
   border-radius: 40px;
-  background-color: black;
+  background-color: #49ade7;
 }
 
 .image-container .brand-svg {
   height: 100%;
   padding: 15%;
+}
+
+.image-container .car-image {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
 }
 
 .text-container {
@@ -50,7 +60,7 @@ main {
   padding: 0px;
   font-family: suse;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #49ade7;
 }
 

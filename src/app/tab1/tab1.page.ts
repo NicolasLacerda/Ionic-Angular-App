@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  NativePageTransitions,
-  NativeTransitionOptions,
-} from '@awesome-cordova-plugins/native-page-transitions/ngx';
 
 @Component({
   selector: 'app-tab1',

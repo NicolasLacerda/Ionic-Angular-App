@@ -1,0 +1,13 @@
+<ul class="teste">
+  <li class="container" *ngFor="let car of allCars">
+    <a routerLink="/tab3">
+      <div class="image-container">
+        <img class="car-image" src="assets\img\{{ car.image }}" alt="" />
+      </div>
+    </a>
+    <div class="text-container">
+      <h1 class="car-name">{{ car.name }}</h1>
+      <h3 class="car-year">{{ car.year }}</h3>
+    </div>
+  </li>
+</ul>

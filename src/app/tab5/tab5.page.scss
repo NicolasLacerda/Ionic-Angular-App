@@ -20,13 +20,38 @@ main {
 }
 
 .showroom-btn {
-  background-color: #49ade7;
-  width: 2.5rem;
-  height: 2.5rem;
+  background-color: white;
+  width: 2.7rem;
+  height: 2.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 500px;
+  padding-right: 4px;
+}
+
+.showroom-menu {
+  background-color: white;
+  width: 2.7rem;
+  height: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 500px;
+}
+
+.menu-svg {
+  height: 1.3rem;
+}
+
+.vinil-brand {
+  background-color: white;
+  width: 50%;
+  height: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
 }
 
 .car {
