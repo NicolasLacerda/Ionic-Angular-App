@@ -1,3 +1,12 @@
+ul {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  padding-inline-start: 0 !important;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -6,41 +15,37 @@ main {
   margin-top: 5.6rem;
   width: 100%;
   flex-wrap: wrap;
-  gap: 1.5rem;
+}
+
+.container {
+  width: 100%;
+  height: 18vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1.8rem;
 }
 
 ion-tab-button {
   display: flex;
   flex-direction: row;
-  background: transparent;
-  --ripple-color: transparent;
-  --background-activated: transparent;
-}
-
-.container {
-  width: 83%;
-  height: 18vh;
-  display: flex;
-  flex-direction: row;
-}
-
-.container:last-child {
-  margin-bottom: 1.8rem;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   width: 18vh;
   height: 100%;
   border-radius: 40px;
   background-color: #49ade7;
 }
 
-.image-container .brand-svg {
+.image-container .wrap-image {
+  width: 100%;
   height: 100%;
-  padding: 15%;
+  object-fit: contain;
 }
 
 .text-container {
@@ -58,8 +63,9 @@ ion-tab-button {
   padding: 0px;
   font-family: suse;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #49ade7;
+  text-transform: capitalize;
 }
 
 .text-container h3 {

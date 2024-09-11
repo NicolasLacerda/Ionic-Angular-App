@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { carsServices } from '../services/cars-services';
-import { carInterface } from 'src/app/models/car';
+import { wrapInterface } from '../models/wrap';
+import { wrapServices } from '../services/wrap-services';
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.scss'],
+  selector: 'app-wrap',
+  templateUrl: './wrap.component.html',
+  styleUrls: ['./wrap.component.scss'],
 })
-export class CarComponent implements OnInit {
+export class WrapComponent implements OnInit {
   //Variável allCars e FilteredCars se baseiam na interface Car Interface
-  allCars: carInterface[] = [];
-  filteredCars: carInterface[] = [];
+  allWrap: wrapInterface[] = [];
+  filteredWrap: wrapInterface[] = [];
 
-  constructor(private service: carsServices) {}
+  constructor(private service: wrapServices) {}
 
   ngOnInit(): void {
     //pega os dados da função getAll() e reescreve usando como base a interface carInterface.
-    this.service.getAll().subscribe((data) => {
+    this.service.getWrap().subscribe((data) => {
       //Pega os valores de data e passa para a variável AllCars.
-      this.allCars = data;
+      this.allWrap = data;
 
       //Pega o cookie geradoo pela página 1 onde o valor é o nome da marca.
       let brand = document.cookie;
 
       //Filtra o array gerado de carros usando como base o cookie que possui o nome de uma marca.
-      let filteredBrand = this.allCars.filter((value) => {
+      let filteredBrand = this.allWrap.filter((value) => {
         return value.brand == brand;
       });
 
       //Pega os valores de FilteredBrand e passa para a variável FilteredCars.
-      this.filteredCars = filteredBrand;
+      this.filteredWrap = filteredBrand;
     });
   }
 }
