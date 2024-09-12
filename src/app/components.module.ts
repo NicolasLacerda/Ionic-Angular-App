@@ -3,11 +3,10 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CarComponent } from './car/car.component';
 import { WrapComponent } from './wrap/wrap.component';
-import { SceneComponent } from './scene/scene.component';
 
 @NgModule({
-  declarations: [CarComponent, WrapComponent, SceneComponent],
+  declarations: [CarComponent, WrapComponent],
   imports: [IonicModule, CommonModule],
-  exports: [CarComponent, WrapComponent, SceneComponent],
+  exports: [CarComponent, WrapComponent],
 })
 export class ComponentsModule {}
