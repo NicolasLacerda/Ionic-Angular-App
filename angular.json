@@ -112,7 +112,7 @@
               }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
-            "scripts": []
+            "scripts": [""]
           },
           "configurations": {
             "ci": {
