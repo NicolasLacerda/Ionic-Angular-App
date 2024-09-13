@@ -15,41 +15,39 @@ export class Tab1Page implements OnInit {
   constructor(private service: carsServices) {}
 
   ngOnInit(): void {
-    //Ao clicar em qualquer elemento da classe btn executa a função (e) que coloca numa variável chamada chosenCar o valor do próprio botão, depois bota nos cookies da página esse valor.
     $('.btn').on('click', function (e) {
       let chosenCar: string = $(this).attr('value')!;
       document.cookie = chosenCar;
     });
 
-    //pega os dados da função getAll() e reescreve usando como base a interface carInterface.
     this.service.getAll().subscribe((data) => {
-      //Pega os valores de data e passa para a variável AllCars.
       this.allCars = data;
+
+      let obj: any = [];
+
+      this.allCars.forEach((item) => {
+        if (!obj[item.brand]) {
+          obj[item.brand] = 1;
+        } else {
+          obj[item.brand] += 1;
+        }
+      });
 
       let arr = $('.btn')
         .map(function () {
           return $(this).attr('value')!;
         })
         .get();
-      let teste: any = arr;
 
-      console.log(teste);
-      //Filtra o array gerado de carros usando como base o cookie que possui o nome de uma marca.
-      let filteredBrand = this.allCars.filter((value) => {
-        let i: number = 0;
-        if (i == 0) {
-          i++;
+      let printNumbers = $('.printNumber');
+
+      for (var i = 0; i < arr.length; i++) {
+        if (i == 1) {
+          $(printNumbers[i]).html(obj[arr[i]] + ' Carro');
+        } else {
+          $(printNumbers[i]).html(obj[arr[i]] + ' Carros');
         }
-        console.log(i);
-        return value.brand == teste[i];
-      });
-
-      //Pega os valores de FilteredBrand e passa para a variável FilteredCars.
-      this.filteredCars = filteredBrand;
-
-      //Armazena a quantidade de carros por marca.
-      let numberOfCars: any = filteredBrand.length!;
-      $('.printNumber').html(numberOfCars + ' Carros');
+      }
     });
   }
 }
