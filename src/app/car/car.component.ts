@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { carsServices } from '../services/cars-services';
 import { carInterface } from 'src/app/models/car';
 
@@ -7,14 +7,14 @@ import { carInterface } from 'src/app/models/car';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.scss'],
 })
-export class CarComponent implements OnInit {
+export class CarComponent implements AfterViewInit {
   //Variável allCars e FilteredCars se baseiam na interface Car Interface
   allCars: carInterface[] = [];
   filteredCars: carInterface[] = [];
 
   constructor(private service: carsServices) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     //pega os dados da função getAll() e reescreve usando como base a interface carInterface.
     this.service.getAll().subscribe((data) => {
       //Pega os valores de data e passa para a variável AllCars.
@@ -31,5 +31,15 @@ export class CarComponent implements OnInit {
       //Pega os valores de FilteredBrand e passa para a variável FilteredCars.
       this.filteredCars = filteredBrand;
     });
+  }
+
+  public open() {
+    let eros = $('.hideUrl');
+
+    let dacia = eros[0];
+
+    let burro = $(dacia).text().toString();
+
+    localStorage.setItem('url', burro);
   }
 }

@@ -10,19 +10,21 @@ import * as $ from 'jquery';
 })
 export class Tab1Page implements OnInit {
   allCars: carInterface[] = [];
-  filteredCars: carInterface[] = [];
 
   constructor(private service: carsServices) {}
 
   ngOnInit(): void {
+    //Ao clicar no botão armazena o carro escolhido em um 🍪.
     $('.btn').on('click', function (e) {
       let chosenCar: string = $(this).attr('value')!;
       document.cookie = chosenCar;
     });
 
+    //Pega do serviço getAll os dados da json cars.
     this.service.getAll().subscribe((data) => {
       this.allCars = data;
 
+      //Cria um array com a quantidade de carros repitidos de cada marca.
       let obj: any = [];
 
       this.allCars.forEach((item) => {
@@ -33,19 +35,22 @@ export class Tab1Page implements OnInit {
         }
       });
 
+      //Pega o atributo value dos botões chamados btn.
       let arr = $('.btn')
         .map(function () {
           return $(this).attr('value')!;
         })
         .get();
 
+      //Cria uma array com as divs chamadas printNumber
       let printNumbers = $('.printNumber');
 
+      //For loop adicionando +1 a variável i a cada objeto da array.
       for (var i = 0; i < arr.length; i++) {
         if (i == 1) {
-          $(printNumbers[i]).html(obj[arr[i]] + ' Carro');
+          $(printNumbers[i]).html(obj[arr[i]] + ' Coche');
         } else {
-          $(printNumbers[i]).html(obj[arr[i]] + ' Carros');
+          $(printNumbers[i]).html(obj[arr[i]] + ' Coches');
         }
       }
     });

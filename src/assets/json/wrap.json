@@ -3,5 +3,24 @@
     "brand": "orafol",
     "model": "975",
     "image": "975.webp"
+  },
+
+  {
+    "name": "porco",
+    "brand": "3m",
+    "model": "975",
+    "image": "975.webp"
+  },
+
+  {
+    "brand": "averyD",
+    "model": "975",
+    "image": "975.webp"
+  },
+
+  {
+    "brand": "imageP",
+    "model": "975",
+    "image": "975.webp"
   }
 ]

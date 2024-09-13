@@ -4,4 +4,5 @@ export interface carInterface {
   brand: string;
   name: string;
   year: string;
+  url: string;
 }

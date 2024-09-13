@@ -71,6 +71,8 @@ main {
   position: fixed;
   bottom: 0;
   z-index: 99;
+  gap: 1rem;
+  padding: 0px 1rem;
 }
 
 .colors {
@@ -92,6 +94,19 @@ main {
   border-radius: 10px;
 }
 
-.colors:active {
-  border: 1px solid #49ade7;
+.upBtn {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  border: 3px solid #49ade7;
+}
+
+.arrowUp {
+  height: 1.5rem;
+  width: 1.5rem;
 }
