@@ -66,44 +66,42 @@ export class Tab5Page implements OnInit {
 
     //Light
 
-    const light = new THREE.DirectionalLight(0xccccff, 30);
-    light.position.set(0, 10, 5);
+    const light = new THREE.SpotLight(0xffffff, 200);
+    light.position.set(0, 10, 0);
+    light.distance = 20;
+    light.angle = 0.4;
+    light.penumbra = 0.5;
     light.castShadow = true;
     scene.add(light);
-    const helper = new THREE.CameraHelper(light.shadow.camera);
-    scene.add(helper);
+
+    const dirlight = new THREE.DirectionalLight(0xffffff, 2);
+    dirlight.position.set(5, 0, 0);
+    scene.add(dirlight);
+
+    const dirlight2 = new THREE.DirectionalLight(0xffffff, 2);
+    dirlight2.position.set(-5, 0, 0);
+    scene.add(dirlight2);
+
+    const dirlight3 = new THREE.DirectionalLight(0xffffff, 2);
+    dirlight3.position.set(0, 0, 5);
+    scene.add(dirlight3);
+
+    const dirlight4 = new THREE.DirectionalLight(0xffffff, 2);
+    dirlight4.position.set(0, 0, -5);
+    scene.add(dirlight4);
 
     // SETUP SCENE
-    const floorTexture = new THREE.TextureLoader().load(
-      '../../assets/scenes/background/floor/b.jpg'
-    );
-    const ambientOclussionTexture = new THREE.TextureLoader().load(
-      '../../assets/scenes/background/floor/a.jpg'
-    );
-
-    floorTexture.wrapS = THREE.RepeatWrapping;
-    floorTexture.wrapT = THREE.RepeatWrapping;
-    floorTexture.repeat.set(10, 10);
 
     const plane = new THREE.Mesh(
-      new THREE.PlaneGeometry(150, 150),
+      new THREE.PlaneGeometry(50, 50),
       new THREE.MeshStandardMaterial({
-        map: floorTexture,
+        color: 0x555555,
+        side: THREE.DoubleSide,
       })
     );
     plane.rotation.x = -Math.PI / 2;
     plane.receiveShadow = true;
     scene.add(plane);
-
-    const hdriLoader = new RGBELoader();
-    hdriLoader.load(
-      '../../assets/scenes/background/sky.hdr',
-      function (texture) {
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        scene.background = texture;
-        scene.environment = texture;
-      }
-    );
 
     //Model
     let loader = new GLTFLoader();
@@ -111,10 +109,8 @@ export class Tab5Page implements OnInit {
     loader.load(selectedCarUrl, function (gltf) {
       const mesh = gltf.scene;
       mesh.castShadow = true;
-      mesh.receiveShadow = true;
       mesh.traverse((child) => {
         child.castShadow = true;
-        child.receiveShadow = true;
       });
       scene.add(mesh);
     });
