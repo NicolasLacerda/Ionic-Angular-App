@@ -9,9 +9,9 @@ import * as $ from 'jquery';
 export class Tab2Page implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {
-    $('#backBtn').on('click', () => {
-      document.cookie = '';
-    });
+  ngOnInit(): void {}
+
+  clear() {
+    localStorage.clear();
   }
 }

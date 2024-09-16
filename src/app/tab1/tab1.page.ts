@@ -14,10 +14,12 @@ export class Tab1Page implements OnInit {
   constructor(private service: carsServices) {}
 
   ngOnInit(): void {
-    //Ao clicar no botão armazena o carro escolhido em um 🍪.
+    localStorage.clear();
+
+    //Ao clicar no botão armazena a marca escolhida no local storage.
     $('.btn').on('click', function (e) {
-      let chosenCar: string = $(this).attr('value')!;
-      document.cookie = chosenCar;
+      let brandSel: string = $(this).attr('value')!;
+      localStorage.setItem('brandSel', brandSel);
     });
 
     //Pega do serviço getAll os dados da json cars.

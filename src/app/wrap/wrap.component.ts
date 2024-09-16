@@ -20,10 +20,10 @@ export class WrapComponent implements OnInit {
       //Pega os valores de data e passa para a variável AllCars.
       this.allWrap = data;
 
-      //Pega o cookie geradoo pela página 1 onde o valor é o nome da marca.
-      let brand = document.cookie;
+      //Pega o localStorage geradoo pela página 1 onde o valor é o nome da marca.
+      let brand = localStorage.getItem('wrapSel');
 
-      //Filtra o array gerado de carros usando como base o cookie que possui o nome de uma marca.
+      //Filtra o array gerado de carros usando como base o localStorage que possui o nome de uma marca.
       let filteredBrand = this.allWrap.filter((value) => {
         return value.brand == brand;
       });

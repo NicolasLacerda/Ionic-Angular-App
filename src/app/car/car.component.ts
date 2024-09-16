@@ -20,10 +20,10 @@ export class CarComponent implements AfterViewInit {
       //Pega os valores de data e passa para a variável AllCars.
       this.allCars = data;
 
-      //Pega o cookie geradoo pela página 1 onde o valor é o nome da marca.
-      let brand = document.cookie;
+      //Pega o localStorage geradoo pela página 1 onde o valor é o nome da marca.
+      let brand: any = localStorage.getItem('brandSel');
 
-      //Filtra o array gerado de carros usando como base o cookie que possui o nome de uma marca.
+      //Filtra o array gerado de carros usando como base o localStorage que possui o nome de uma marca.
       let filteredBrand = this.allCars.filter((value) => {
         return value.brand == brand;
       });
@@ -40,6 +40,6 @@ export class CarComponent implements AfterViewInit {
 
     let burro = $(dacia).text().toString();
 
-    localStorage.setItem('url', burro);
+    localStorage.setItem('carUrl', burro);
   }
 }
