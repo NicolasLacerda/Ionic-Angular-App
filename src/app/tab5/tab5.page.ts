@@ -129,9 +129,7 @@ export class Tab5Page implements OnInit {
       scene = null;
       $('#car').remove();
     });
-  }
 
-  clear() {
-    localStorage.setItem('carUrl', '');
+    let wrapBrandLogo = localStorage.getItem('brandWrapSel');
   }
 }

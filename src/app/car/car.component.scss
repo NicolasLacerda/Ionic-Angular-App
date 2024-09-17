@@ -27,6 +27,17 @@ main {
   gap: 1.8rem;
 }
 
+button {
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  color: black;
+  width: 100%;
+  height: 18vh;
+  justify-content: center;
+  align-items: center;
+}
+
 ion-tab-button {
   display: flex;
   flex-direction: row;

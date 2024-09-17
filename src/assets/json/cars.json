@@ -12,5 +12,12 @@
     "name": "Duster",
     "year": 2024,
     "url": "../../assets/scenes/dacia/duster/scene.glb"
+  },
+  {
+    "image": "arona.png",
+    "brand": "seat",
+    "name": "Arona",
+    "year": 2024,
+    "url": "../../assets/scenes/dacia/duster/scene.glb"
   }
 ]

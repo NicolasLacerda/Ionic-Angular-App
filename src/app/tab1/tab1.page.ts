@@ -49,7 +49,7 @@ export class Tab1Page implements OnInit {
 
       //For loop adicionando +1 a variável i a cada objeto da array.
       for (var i = 0; i < arr.length; i++) {
-        if (i == 1) {
+        if (obj[arr[i]] == 1) {
           $(printNumbers[i]).html(obj[arr[i]] + ' Coche');
         } else {
           $(printNumbers[i]).html(obj[arr[i]] + ' Coches');

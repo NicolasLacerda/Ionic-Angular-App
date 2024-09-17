@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { wrapInterface } from '../models/wrap';
 import { wrapServices } from '../services/wrap-services';
 
@@ -7,7 +7,7 @@ import { wrapServices } from '../services/wrap-services';
   templateUrl: './wrap.component.html',
   styleUrls: ['./wrap.component.scss'],
 })
-export class WrapComponent implements OnInit {
+export class WrapComponent implements OnInit, AfterContentChecked {
   //Variável allCars e FilteredCars se baseiam na interface Car Interface
   allWrap: wrapInterface[] = [];
   filteredWrap: wrapInterface[] = [];
@@ -21,7 +21,7 @@ export class WrapComponent implements OnInit {
       this.allWrap = data;
 
       //Pega o localStorage geradoo pela página 1 onde o valor é o nome da marca.
-      let brand = localStorage.getItem('wrapSel');
+      let brand = localStorage.getItem('brandWrapSel');
 
       //Filtra o array gerado de carros usando como base o localStorage que possui o nome de uma marca.
       let filteredBrand = this.allWrap.filter((value) => {
@@ -30,6 +30,13 @@ export class WrapComponent implements OnInit {
 
       //Pega os valores de FilteredBrand e passa para a variável FilteredCars.
       this.filteredWrap = filteredBrand;
+    });
+  }
+  ngAfterContentChecked(): void {
+    //Ao clicar no botão armazena o carro escolhido no local storage.
+    $('.wrapBtn').on('click', function () {
+      let wrapType: string = $(this).attr('value')!;
+      localStorage.setItem('typeSel', wrapType);
     });
   }
 }
