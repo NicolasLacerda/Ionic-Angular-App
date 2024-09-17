@@ -3,11 +3,16 @@
     <button class="wrapBtn" value="{{ wrap.model }}">
       <ion-tab-button tab="tab5">
         <div class="image-container">
-          <img class="wrap-image" src="assets\img\{{ wrap.image }}" alt="" />
+          <img
+            class="wrap-image"
+            src="assets\img\wrapTypes\{{ wrap.image }}"
+            alt=""
+          />
         </div>
         <div class="text-container">
-          <h1 class="wrap-name">{{ wrap.brand }}</h1>
-          <h3 class="wrap-year">{{ wrap.model }}</h3>
+          <h1 class="wrap-name">{{ wrap.name }}</h1>
+          <h3 class="wrap-model">{{ wrap.model }}</h3>
+          <h3 class="hideVinils">{{ wrap.vinils }}</h3>
         </div>
       </ion-tab-button>
     </button>

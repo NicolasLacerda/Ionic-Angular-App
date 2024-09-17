@@ -9,8 +9,4 @@ export class Tab4Page implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
-  clear() {
-    localStorage.setItem('wrapSel', '');
-  }
 }

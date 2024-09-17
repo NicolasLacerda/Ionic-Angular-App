@@ -32,11 +32,13 @@ export class WrapComponent implements OnInit, AfterContentChecked {
       this.filteredWrap = filteredBrand;
     });
   }
-  ngAfterContentChecked(): void {
+  ngAfterContentChecked() {
     //Ao clicar no botão armazena o carro escolhido no local storage.
     $('.wrapBtn').on('click', function () {
       let wrapType: string = $(this).attr('value')!;
       localStorage.setItem('typeSel', wrapType);
+      let vinils: any = $('.hideVinils').text();
+      localStorage.setItem('colorGroup', vinils);
     });
   }
 }
