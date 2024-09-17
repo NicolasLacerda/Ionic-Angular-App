@@ -131,5 +131,8 @@ export class Tab5Page implements OnInit {
     });
 
     let wrapBrandLogo = localStorage.getItem('brandWrapSel');
+    if (wrapBrandLogo == '3m') {
+      $('#vinil-brand');
+    }
   }
 }
