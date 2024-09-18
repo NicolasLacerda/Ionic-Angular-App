@@ -9,4 +9,8 @@ export class Tab4Page implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  clear() {
+    history.go(-1);
+  }
 }

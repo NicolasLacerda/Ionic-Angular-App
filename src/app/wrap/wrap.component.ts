@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { wrapInterface } from '../models/wrap';
 import { wrapServices } from '../services/wrap-services';
 
@@ -7,7 +7,7 @@ import { wrapServices } from '../services/wrap-services';
   templateUrl: './wrap.component.html',
   styleUrls: ['./wrap.component.scss'],
 })
-export class WrapComponent implements OnInit, AfterContentChecked {
+export class WrapComponent implements OnInit {
   //Variável allCars e FilteredCars se baseiam na interface Car Interface
   allWrap: wrapInterface[] = [];
   filteredWrap: wrapInterface[] = [];
@@ -31,14 +31,16 @@ export class WrapComponent implements OnInit, AfterContentChecked {
       //Pega os valores de FilteredBrand e passa para a variável FilteredCars.
       this.filteredWrap = filteredBrand;
     });
-  }
-  ngAfterContentChecked() {
-    //Ao clicar no botão armazena o carro escolhido no local storage.
-    $('.wrapBtn').on('click', function () {
-      let wrapType: string = $(this).attr('value')!;
-      localStorage.setItem('typeSel', wrapType);
-      let vinils: any = $('.hideVinils').text();
-      localStorage.setItem('colorGroup', vinils);
-    });
+
+    setTimeout(() => {
+      //Ao clicar no botão armazena o carro escolhido no local storage.
+      $('.wrapBtn').on('click', function () {
+        let wrapType: string = $(this).attr('value')!;
+        localStorage.setItem('wrapTypeSel', wrapType);
+        //
+        let vinils: any = $('.hideVinils').text();
+        localStorage.setItem('colorGroup', vinils);
+      });
+    }, 100);
   }
 }

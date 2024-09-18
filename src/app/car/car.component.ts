@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { carsServices } from '../services/cars-services';
 import { carInterface } from 'src/app/models/car';
 
@@ -7,7 +7,7 @@ import { carInterface } from 'src/app/models/car';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.scss'],
 })
-export class CarComponent implements OnInit, AfterContentChecked {
+export class CarComponent implements OnInit {
   //Variável allCars e FilteredCars se baseiam na interface Car Interface
   allCars: carInterface[] = [];
   filteredCars: carInterface[] = [];
@@ -31,13 +31,13 @@ export class CarComponent implements OnInit, AfterContentChecked {
       //Pega os valores de FilteredBrand e passa para a variável FilteredCars.
       this.filteredCars = filteredBrand;
     });
-  }
 
-  ngAfterContentChecked(): void {
-    //Ao clicar no botão armazena o carro escolhido no local storage.
-    $('.carBtn').on('click', function () {
-      let carUrl: string = $(this).attr('value')!;
-      localStorage.setItem('carUrl', carUrl);
-    });
+    setTimeout(() => {
+      //Ao clicar no botão armazena o carro escolhido no local storage.
+      $('.carBtn').on('click', function () {
+        let carUrl: string = $(this).attr('value')!;
+        localStorage.setItem('carUrl', carUrl);
+      });
+    }, 100);
   }
 }
