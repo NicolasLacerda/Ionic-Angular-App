@@ -1,65 +1,9 @@
 [
   {
     "brand": "orafol",
-    "name": "carbon",
-    "model": "975",
+    "name": "ORACAL® 951",
+    "model": "Premium Cast",
     "image": "975.webp",
-    "vinils": [
-      "975/1.jpg",
-      "975/2.jpg",
-      "975/3.jpg",
-      "975/4.jpg",
-      "975/5.jpg",
-      "975/6.jpg",
-      "975/7.jpg"
-    ]
-  },
-
-  {
-    "brand": "3m",
-    "name": "carbon",
-    "model": "975",
-    "image": "975.webp",
-    "vinils": [
-      "975/1.jpg",
-      "975/2.jpg",
-      "975/3.jpg",
-      "975/4.jpg",
-      "975/5.jpg",
-      "975/6.jpg",
-      "975/7.jpg"
-    ]
-  },
-
-  {
-    "brand": "averyD",
-    "name": "carbon",
-    "model": "975",
-    "image": "975.webp",
-    "vinils": [
-      "975/1.jpg",
-      "975/2.jpg",
-      "975/3.jpg",
-      "975/4.jpg",
-      "975/5.jpg",
-      "975/6.jpg",
-      "975/7.jpg"
-    ]
-  },
-
-  {
-    "brand": "imageP",
-    "name": "carbon",
-    "model": "975",
-    "image": "975.webp",
-    "vinils": [
-      "975/1.jpg",
-      "975/2.jpg",
-      "975/3.jpg",
-      "975/4.jpg",
-      "975/5.jpg",
-      "975/6.jpg",
-      "975/7.jpg"
-    ]
+    "vinils": ["feeb1d", "cb1701", "5e3682", "60ccbc", "83888d"]
   }
 ]

@@ -1,23 +1,16 @@
 [
   {
-    "image": "ibiza.png",
-    "brand": "seat",
-    "name": "Ibiza",
-    "year": 2023,
-    "url": "seat/ibiza/scene"
+    "image": "countach-2022.png",
+    "brand": "lamborghini",
+    "name": "Countach",
+    "year": 2022,
+    "url": "lamborghini/countach/countach-2022"
   },
   {
-    "image": "duster.png",
-    "brand": "dacia",
-    "name": "Duster",
-    "year": 2024,
-    "url": "dacia/duster/scene"
-  },
-  {
-    "image": "arona.png",
-    "brand": "seat",
-    "name": "Arona",
-    "year": 2024,
-    "url": "dacia/duster/scene"
+    "image": "fit-2007.png",
+    "brand": "honda",
+    "name": "Honda Fit",
+    "year": 2007,
+    "url": "honda/fit/fit-2007"
   }
 ]

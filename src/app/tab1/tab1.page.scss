@@ -18,7 +18,7 @@ ion-tab-button {
 }
 
 .container {
-  width: 83%;
+  width: 90%;
   height: 18vh;
   display: flex;
   flex-direction: row;
@@ -50,7 +50,7 @@ ion-tab-button {
   justify-content: center;
   align-items: flex-start;
   width: calc(100% - 18vh);
-  padding-left: 1.8rem;
+  padding-left: 1rem;
 }
 
 .text-container h1 {
@@ -58,7 +58,8 @@ ion-tab-button {
   padding: 0px;
   font-family: suse;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  text-wrap: wrap;
   color: #49ade7;
 }
 
