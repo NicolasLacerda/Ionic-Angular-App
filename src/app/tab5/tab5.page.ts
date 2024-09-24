@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { carsServices } from '../services/cars-services';
 import * as $ from 'jquery';
+import Stats from 'three/examples/jsm/libs/stats.module';
 
 @Component({
   selector: 'app-tab5',
@@ -11,7 +11,7 @@ import * as $ from 'jquery';
   styleUrls: ['./tab5.page.scss'],
 })
 export class Tab5Page implements OnInit {
-  constructor(private service: carsServices) {}
+  constructor() {}
 
   ngOnInit(): void {
     let wrapBrandLogo = localStorage.getItem('brandWrapSel');
@@ -56,23 +56,141 @@ export class Tab5Page implements OnInit {
 
       $('#upBtn').on('click', () => {
         $('.arrowUp').toggleClass('rotate');
-        $('.other-colors').slideToggle('slow');
+        $('.other-colors').toggle();
       });
 
       $('#wrapper').on('click', function () {
         $(this).toggleClass('open');
-        $('.btnR').slideToggle('slow');
+        $('.btnR').toggle();
       });
-    }, 100);
+
+      $('.teto').on('click', function (e) {
+        $('.todos').removeClass('active-btn');
+        $('.retro').removeClass('active-btn');
+        $('.teto').addClass('active-btn');
+
+        $('.colors-item-roof').remove();
+        for (var i = 0; i < vinils.length; i++) {
+          if (i <= 4) {
+            $('.colors').append(
+              '<button class="colors-item-roof" value=' +
+                vinil[i] +
+                ' style="width:2.3rem; height:2.3rem; border-radius: 10px; background: #' +
+                vinil[i] +
+                '" ></button>'
+            );
+          } else if (i > 4 && i < 25) {
+            $('.colors2').append(
+              '<button class="colors-item-roof" value=' +
+                vinil[i] +
+                ' style="width:3rem; height:3rem; border-radius: 10px; background: #' +
+                vinil[i] +
+                '" ></button>'
+            );
+          }
+        }
+        $('.colors-item').remove();
+        $('.colors-item-retro').remove();
+      });
+
+      $('.retro').on('click', function (e) {
+        $('.todos').removeClass('active-btn');
+        $('.teto').removeClass('active-btn');
+        $('.retro').addClass('active-btn');
+
+        $('.colors-item-retro').remove();
+        for (var i = 0; i < vinils.length; i++) {
+          if (i <= 4) {
+            $('.colors').append(
+              '<button class="colors-item-retro" value=' +
+                vinil[i] +
+                ' style="width:2.3rem; height:2.3rem; border-radius: 10px; background: #' +
+                vinil[i] +
+                '" ></button>'
+            );
+          } else if (i > 4 && i < 25) {
+            $('.colors2').append(
+              '<button class="colors-item-retro" value=' +
+                vinil[i] +
+                ' style="width:3rem; height:3rem; border-radius: 10px; background: #' +
+                vinil[i] +
+                '" ></button>'
+            );
+          }
+        }
+        $('.colors-item').remove();
+        $('.colors-item-roof').remove();
+      });
+
+      $('.todos').on('click', function (e) {
+        $('.retro').removeClass('active-btn');
+        $('.teto').removeClass('active-btn');
+        $('.todos').addClass('active-btn');
+
+        $('.colors-item').remove();
+        for (var i = 0; i < vinils.length; i++) {
+          if (i <= 4) {
+            $('.colors').append(
+              '<button class="colors-item" value=' +
+                vinil[i] +
+                ' style="width:2.3rem; height:2.3rem; border-radius: 10px; background: #' +
+                vinil[i] +
+                '" ></button>'
+            );
+          } else if (i > 4 && i < 25) {
+            $('.colors2').append(
+              '<button class="colors-item" value=' +
+                vinil[i] +
+                ' style="width:3rem; height:3rem; border-radius: 10px; background: #' +
+                vinil[i] +
+                '" ></button>'
+            );
+          }
+        }
+        $('.colors-item-retro').remove();
+        $('.colors-item-roof').remove();
+      });
+
+      $('.showroom-menu').on('click', function (e) {
+        $('.menu-page').show();
+      });
+      $('#back-btn-menu').on('click', function (e) {
+        $('.menu-page').hide();
+      });
+    }, 50);
 
     //Canvas
     setTimeout(() => {
-      //Render
-      let renderer = new THREE.WebGLRenderer({});
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      let aliasRaw: any;
+      let aliasToggle: any;
 
+      $('.alias').on('click', function () {
+        aliasRaw = $(this).attr('value')!;
+        localStorage.setItem('antiA', aliasRaw);
+        window.location.reload();
+      });
+
+      aliasToggle = localStorage.getItem('antiA');
+      let alias = aliasToggle === 'true';
+
+      let res: any;
+
+      function aliasing() {
+        if (alias == true) {
+          res = 'Ligado';
+        } else {
+          res = 'Desligado';
+        }
+      }
+
+      aliasing();
+
+      $('#callAlias').append('Anti Serrilhado: ' + res);
+
+      //Render
+      let renderer = new THREE.WebGLRenderer({ antialias: alias });
+      renderer.setSize(720, 1280);
       renderer.setClearColor(0x000000);
-      renderer.setPixelRatio(window.devicePixelRatio);
       renderer.shadowMap.enabled = true;
 
       renderer.toneMapping = THREE.NeutralToneMapping;
@@ -149,9 +267,7 @@ export class Tab5Page implements OnInit {
 
       //GET LOCALSTORAGE
       let selectedCarUrl: any = localStorage.getItem('carUrl');
-      let carUrl = '../../assets/scenes/honda/fit/fit-2007.glb';
-
-      const lod = new THREE.LOD();
+      let carUrl = '../../assets/scenes/' + selectedCarUrl + '.glb';
 
       //Model
       let loader = new GLTFLoader();
@@ -207,33 +323,6 @@ export class Tab5Page implements OnInit {
 
           //Botão Teto
           $('.teto').on('click', function (e) {
-            $('.todos').removeClass('active-btn');
-            $('.retro').removeClass('active-btn');
-            $('.teto').addClass('active-btn');
-
-            $('.colors-item-roof').remove();
-            for (var i = 0; i < vinils.length; i++) {
-              if (i <= 4) {
-                $('.colors').append(
-                  '<button class="colors-item-roof" value=' +
-                    vinil[i] +
-                    ' style="width:2.3rem; height:2.3rem; border-radius: 10px; background: #' +
-                    vinil[i] +
-                    '" ></button>'
-                );
-              } else if (i > 4 && i < 25) {
-                $('.colors2').append(
-                  '<button class="colors-item-roof" value=' +
-                    vinil[i] +
-                    ' style="width:3rem; height:3rem; border-radius: 10px; background: #' +
-                    vinil[i] +
-                    '" ></button>'
-                );
-              }
-            }
-            $('.colors-item').remove();
-            $('.colors-item-retro').remove();
-
             setTimeout(() => {
               roof?.traverse((wrap) => {
                 if (wrap instanceof THREE.Mesh) {
@@ -245,38 +334,11 @@ export class Tab5Page implements OnInit {
                   });
                 }
               });
-            }, 100);
+            }, 50);
           });
 
           //Botão Retrovisor
           $('.retro').on('click', function (e) {
-            $('.todos').removeClass('active-btn');
-            $('.teto').removeClass('active-btn');
-            $('.retro').addClass('active-btn');
-
-            $('.colors-item-retro').remove();
-            for (var i = 0; i < vinils.length; i++) {
-              if (i <= 4) {
-                $('.colors').append(
-                  '<button class="colors-item-retro" value=' +
-                    vinil[i] +
-                    ' style="width:2.3rem; height:2.3rem; border-radius: 10px; background: #' +
-                    vinil[i] +
-                    '" ></button>'
-                );
-              } else if (i > 4 && i < 25) {
-                $('.colors2').append(
-                  '<button class="colors-item-retro" value=' +
-                    vinil[i] +
-                    ' style="width:3rem; height:3rem; border-radius: 10px; background: #' +
-                    vinil[i] +
-                    '" ></button>'
-                );
-              }
-            }
-            $('.colors-item').remove();
-            $('.colors-item-roof').remove();
-
             setTimeout(() => {
               retro?.traverse((wrap) => {
                 if (wrap instanceof THREE.Mesh) {
@@ -288,38 +350,11 @@ export class Tab5Page implements OnInit {
                   });
                 }
               });
-            }, 125);
+            }, 50);
           });
 
           //Botão Carro Inteiro
           $('.todos').on('click', function (e) {
-            $('.retro').removeClass('active-btn');
-            $('.teto').removeClass('active-btn');
-            $('.todos').addClass('active-btn');
-
-            $('.colors-item').remove();
-            for (var i = 0; i < vinils.length; i++) {
-              if (i <= 4) {
-                $('.colors').append(
-                  '<button class="colors-item" value=' +
-                    vinil[i] +
-                    ' style="width:2.3rem; height:2.3rem; border-radius: 10px; background: #' +
-                    vinil[i] +
-                    '" ></button>'
-                );
-              } else if (i > 4 && i < 25) {
-                $('.colors2').append(
-                  '<button class="colors-item" value=' +
-                    vinil[i] +
-                    ' style="width:3rem; height:3rem; border-radius: 10px; background: #' +
-                    vinil[i] +
-                    '" ></button>'
-                );
-              }
-            }
-            $('.colors-item-retro').remove();
-            $('.colors-item-roof').remove();
-
             setTimeout(() => {
               body?.traverse((wrap) => {
                 if (wrap instanceof THREE.Mesh) {
@@ -355,23 +390,63 @@ export class Tab5Page implements OnInit {
             }, 125);
           });
         });
-        console.log(mesh);
+
         scene.add(mesh);
         animate();
       });
 
-      function animate() {
-        renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-      }
-
       $('#car').append(renderer.domElement); //coloca o canvas dentro da div car.
+      $('canvas').css('width', '100vw');
+      $('canvas').css('height', '100vh');
+
+      var stats1 = new Stats();
+      stats1.showPanel(0);
+      stats1.dom.style.cssText =
+        'position:absolute;top:0px;left:80px;z-index:98;';
+      document.body.appendChild(stats1.dom);
+
+      var stats2 = new Stats();
+      stats2.showPanel(1);
+      stats2.dom.style.cssText =
+        'position:absolute;top:0px;left:160px;z-index:98;';
+      document.body.appendChild(stats2.dom);
+
+      var stats3 = new Stats();
+      stats3.showPanel(2);
+      stats3.dom.style.cssText =
+        'position:absolute;top:0px;left:240px;z-index:98;';
+      document.body.appendChild(stats3.dom);
+
+      let clock = new THREE.Clock();
+      let delta = 0;
+      let interval = 1 / 45;
+
+      let myReq: any;
+
+      function animate() {
+        myReq = requestAnimationFrame(animate);
+        delta += clock.getDelta();
+
+        if (delta > interval) {
+          renderer.render(scene, camera);
+
+          delta = delta % interval;
+        }
+        stats1.update();
+        stats2.update();
+        stats3.update();
+      }
 
       //Clear
       $('.showroom-btn').on('click', function () {
         scene = null!;
-        $('#car').remove();
+        stats1 = null!;
+        stats2 = null!;
+        stats3 = null!;
+        $('canvas').remove();
+        $('renderer').remove();
+        cancelAnimationFrame(myReq);
       });
-    }, 150);
+    }, 50);
   }
 }

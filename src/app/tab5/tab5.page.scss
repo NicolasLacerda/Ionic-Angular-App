@@ -64,7 +64,7 @@ main {
   position: fixed;
   left: 1rem;
   bottom: 9rem;
-  z-index: 99;
+  z-index: 98;
   display: flex;
   flex-direction: column;
 }
@@ -113,18 +113,6 @@ main {
   border: 3px solid #49ade7;
 }
 
-@keyframes button-click {
-  0% {
-    transform: scale(1) translateY(0);
-  }
-  50% {
-    transform: scale(0.95) translateY(2px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-  }
-}
-
 .button {
   display: flex;
   background: #eef3f7;
@@ -162,7 +150,6 @@ main {
   align-items: center;
   justify-content: center;
   transform: scale(1);
-  transition: transform 400ms ease-in-out 300ms;
 }
 
 .tag {
@@ -172,7 +159,6 @@ main {
   justify-content: center;
   color: #49ade7;
   transform: rotate(-90deg);
-  transition: transform 200ms ease-in-out 600ms;
   cursor: pointer;
 }
 
@@ -186,7 +172,6 @@ main {
   width: 75px;
   height: 75px;
   transform-origin: center;
-  transition: opacity 100ms ease-in-out 300ms, transform 400ms ease-in-out 0ms;
   &::before,
   &::after {
     content: "";
@@ -197,19 +182,12 @@ main {
     top: 1.6rem;
     border-radius: 4px;
     opacity: 0;
-    transform: scale(1) rotate(0);
-    transition: opacity 100ms ease-in-out 300ms, top 200ms ease 100ms,
-      height 200ms ease 100ms, transform 400ms ease-in-out 0ms;
+    transform: scale(1);
   }
 }
 
 .wrapper.open .tag-wrapper {
   transform: scaleX(0);
-  transition: transform 500ms ease-in-out 200ms;
-  .tag {
-    transform: rotate(-45deg);
-    transition: all 300ms ease-in-out 0ms;
-  }
 }
 
 .wrapper.open .close {
@@ -217,11 +195,8 @@ main {
   &::before,
   &::after {
     display: flex;
-
     top: 1.6rem;
     opacity: 1;
-    transition: opacity 100ms ease-in-out 500ms, top 200ms ease 400ms,
-      height 200ms ease 400ms, transform 400ms ease-in-out 500ms;
   }
   &::before {
     transform: scale(0.9) rotate(-45deg);
@@ -254,7 +229,7 @@ main {
   align-items: center;
   position: fixed;
   bottom: 0;
-  z-index: 99;
+  z-index: 98;
   padding: 0px 1rem;
 }
 
@@ -318,4 +293,49 @@ main {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.menu-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  display: none;
+}
+
+.menu-page-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+
+#back-btn-menu {
+  position: absolute;
+  top: 0.15rem;
+  left: 1.5rem;
+}
+
+#back-btn-menu h1 {
+  font-size: 3rem;
+}
+
+.menu-page p {
+  width: 80%;
+  font-size: 1rem;
+}
+
+.menu-page button {
+  font-size: 1.5rem;
+  background: black;
+  color: white;
+  padding: 1rem;
+  border-radius: 20px;
 }

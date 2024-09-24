@@ -11,13 +11,34 @@
     "brand": "honda",
     "name": "Honda Fit",
     "year": 2007,
-    "url": "honda/fit/Donkey"
+    "url": "honda/fit/fit-2007"
   },
   {
     "image": "ecosport-2017.png",
     "brand": "ford",
     "name": "Eco Sport",
     "year": 2017,
-    "url": "ford/ecosport/ecosport-2017"
+    "url": "ford/ecosport/duster-2010"
+  },
+  {
+    "image": "duster-2019.png",
+    "brand": "dacia",
+    "name": "Duster",
+    "year": 2019,
+    "url": "dacia/duster/duster-2019"
+  },
+  {
+    "image": "logan-2019.png",
+    "brand": "dacia",
+    "name": "Logan",
+    "year": 2019,
+    "url": "dacia/logan/logan-2019"
+  },
+  {
+    "image": "ecosport-2017.png",
+    "brand": "seat",
+    "name": "Eco Sport",
+    "year": 2017,
+    "url": "ford/ecosport/duster-2010"
   }
 ]
