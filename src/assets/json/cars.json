@@ -40,5 +40,33 @@
     "name": "Eco Sport",
     "year": 2017,
     "url": "ford/ecosport/duster-2010"
+  },
+  {
+    "image": "corolla-2023.png",
+    "brand": "toyota",
+    "name": "Corolla Hatchback",
+    "year": 2023,
+    "url": "toyota/corolla/corolla-2023"
+  },
+  {
+    "image": "corollaS-2023.png",
+    "brand": "toyota",
+    "name": "Corolla",
+    "year": 2023,
+    "url": "toyota/corollaS/corollaS-2023"
+  },
+  {
+    "image": "rav4-2022.png",
+    "brand": "toyota",
+    "name": "Rav4",
+    "year": 2022,
+    "url": "toyota/rav4/rav4-2022"
+  },
+  {
+    "image": "yaris-2019.png",
+    "brand": "toyota",
+    "name": "Yaris",
+    "year": 2019,
+    "url": "toyota/yaris/yaris-2019"
   }
 ]

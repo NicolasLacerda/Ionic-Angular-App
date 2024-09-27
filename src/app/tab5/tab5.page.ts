@@ -4,6 +4,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as $ from 'jquery';
 import { Platform } from '@ionic/angular';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 @Component({
   selector: 'app-tab5',
@@ -506,6 +507,11 @@ export class Tab5Page implements OnInit {
 
       //Model
       let loader = new GLTFLoader();
+      let dloader = new DRACOLoader();
+      dloader.setDecoderPath('../../assets/draco/javascript/');
+      dloader.setDecoderConfig({ type: 'js' });
+      loader.setDRACOLoader(dloader);
+
       loader.load(carUrl, (gltf) => {
         let mesh = gltf.scene;
         mesh.castShadow = true;
