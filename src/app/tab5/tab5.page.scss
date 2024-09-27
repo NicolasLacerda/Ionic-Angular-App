@@ -244,7 +244,7 @@ main {
 .colors {
   width: 80%;
   height: 3rem;
-  background-color: whitesmoke;
+  background-color: #ecebeb;
   border-radius: 10px;
   padding: 0px 1rem;
   display: flex;
@@ -275,7 +275,7 @@ main {
 .other-colors {
   width: 95%;
   height: 20rem;
-  background-color: whitesmoke;
+  background-color: #ecebeb;
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -287,7 +287,7 @@ main {
 .colors2 {
   width: 100%;
   height: 100%;
-  background-color: whitesmoke;
+  background-color: #ecebeb;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -304,9 +304,117 @@ main {
   height: 100vh;
   z-index: 99;
   display: none;
+  padding-top: 4.4rem;
 }
 
 .menu-page-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 1.5rem;
+  gap: 1rem;
+}
+
+.moreInfos {
+  border: 0.2rem solid #49ade7;
+  border-radius: 1.5rem;
+  width: 85%;
+  height: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+.moreInfos .moreInfos-inner {
+  height: 90%;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-bottom: 0.2rem solid #49ade7;
+}
+
+.blocks {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.blocks p {
+  margin: 0px;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  margin: 2rem 0rem 1rem 0rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoIcons {
+  width: 2rem;
+  height: 2rem;
+}
+
+.menu-page p {
+  font-size: 1rem;
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carImg {
+  background-color: #49ade7;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 500px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carName {
+  color: #49ade7;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.config-page {
+  padding-top: 4.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  display: none;
+}
+
+.config-page-inner {
   display: flex;
   width: 100%;
   height: 100%;
@@ -317,25 +425,52 @@ main {
   gap: 1rem;
 }
 
-#back-btn-menu {
-  position: absolute;
-  top: 0.15rem;
-  left: 1.5rem;
-}
-
-#back-btn-menu h1 {
-  font-size: 3rem;
-}
-
-.menu-page p {
+.config-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 80%;
-  font-size: 1rem;
+  height: 100%;
+  gap: 3rem;
 }
 
-.menu-page button {
-  font-size: 1.5rem;
-  background: black;
+.buttons-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+#callAlias {
+  width: 80%;
+}
+
+.buttons-container button {
+  padding: 1rem;
+  background-color: #49ade7;
+  width: 60%;
   color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 500px;
+}
+
+.configContent {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+
+.information {
+  background-color: #49ade7;
+  color: white;
+  font-weight: 600;
   padding: 1rem;
   border-radius: 20px;
 }

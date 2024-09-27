@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -7,11 +7,34 @@ import * as $ from 'jquery';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-  constructor() {}
+  private isCurrentView!: boolean;
+
+  constructor(private platform: Platform) {
+    this.platform.backButton.subscribeWithPriority(
+      9999,
+      (processNextHandler) => {
+        if (this.isCurrentView) {
+          history.go(-1);
+          localStorage.removeItem('brandSel');
+        } else {
+          processNextHandler();
+        }
+      }
+    );
+  }
+
+  ionViewDidEnter() {
+    this.isCurrentView = true;
+  }
+
+  ionViewWillLeave() {
+    this.isCurrentView = false;
+  }
 
   ngOnInit(): void {}
 
   clear() {
-    localStorage.clear();
+    history.go(-1);
+    localStorage.removeItem('brandSel');
   }
 }

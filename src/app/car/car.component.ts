@@ -35,6 +35,12 @@ export class CarComponent implements OnInit {
     setTimeout(() => {
       //Ao clicar no botão armazena o carro escolhido no local storage.
       $('.carBtn').on('click', function () {
+        let carName = $(this).parent().find('.car-name').text();
+        localStorage.setItem('carName', carName);
+
+        let carYear = $(this).parent().find('.car-year').text();
+        localStorage.setItem('carYear', carYear);
+
         let carUrl: string = $(this).attr('value')!;
         localStorage.setItem('carUrl', carUrl);
       });

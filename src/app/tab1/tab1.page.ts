@@ -14,8 +14,6 @@ export class Tab1Page implements OnInit {
   constructor(private service: carsServices) {}
 
   ngOnInit(): void {
-    localStorage.clear();
-
     //Ao clicar no botão armazena a marca escolhida no local storage.
     $('.btn').on('click', function (e) {
       let brandSel: string = $(this).attr('value')!;

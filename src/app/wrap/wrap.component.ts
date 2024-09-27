@@ -38,7 +38,7 @@ export class WrapComponent implements OnInit {
         let wrapType: string = $(this).attr('value')!;
         localStorage.setItem('wrapTypeSel', wrapType);
         //
-        let vinils: any = $('.hideVinils').text();
+        let vinils: any = $(this).parent().find('.hideVinils').text();
         localStorage.setItem('colorGroup', vinils);
       });
     }, 100);

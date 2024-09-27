@@ -1,11 +1,11 @@
 <ul class="teste">
   <li class="container" *ngFor="let car of filteredCars">
     <button class="carBtn" value="{{ car.url }}">
-      <ion-tab-button tab="tab3">
+      <ion-tab-button tab="tab3" class="carBtn-inner">
         <div class="image-container">
           <img
             class="car-image"
-            src="./assets/img/cars/{{ car.image }}"
+            src="./assets/scenes/{{ car.url }}.png"
             alt=""
           />
         </div>
