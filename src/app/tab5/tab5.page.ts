@@ -5,6 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as $ from 'jquery';
 import { Platform } from '@ionic/angular';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import Stats from 'three/examples/jsm/libs/stats.module';
 
 @Component({
   selector: 'app-tab5',
@@ -210,161 +211,171 @@ export class Tab5Page implements OnInit {
         let roofColor: any = localStorage.getItem('colorRoof');
         let retroColor: any = localStorage.getItem('colorRetro');
 
-        if (infoColor == 'feeb1d') {
-          $('.infoColor').append('Light yellow');
-        } else if (infoColor == 'cb1701') {
-          $('.infoColor').append('Light red');
-        } else if (infoColor == '5e3682') {
-          $('.infoColor').append('Deep violet');
-        } else if (infoColor == '60ccbc') {
-          $('.infoColor').append('Mint blue');
-        } else if (infoColor == '83888d') {
-          $('.infoColor').append('Middle grey');
-        } else if (infoColor == 'ecdc1a') {
-          $('.infoColor').append('Crocus yellow');
-        } else if (infoColor == 'fac615') {
-          $('.infoColor').append('Golden yellow');
-        } else if (infoColor == 'c00a16') {
-          $('.infoColor').append('Cardinal red');
-        } else if (infoColor == '8260a9') {
-          $('.infoColor').append('Purple');
-        } else if (infoColor == '6a0b35') {
-          $('.infoColor').append('Bordeaux');
-        } else if (infoColor == '708ea2') {
-          $('.infoColor').append('Dove blue');
-        } else if (infoColor == '42a5d6') {
-          $('.infoColor').append('Ice blue');
-        } else if (infoColor == '192643') {
-          $('.infoColor').append('Moonlight blue');
-        } else if (infoColor == '009999') {
-          $('.infoColor').append('Blue turquoise');
-        } else if (infoColor == '00476c') {
-          $('.infoColor').append('Blue green');
-        } else if (infoColor == '75ca3b') {
-          $('.infoColor').append('Lime green');
-        } else if (infoColor == '03903f') {
-          $('.infoColor').append('Light green');
-        } else if (infoColor == '004a2f') {
-          $('.infoColor').append('Dark green');
-        } else if (infoColor == 'b08550') {
-          $('.infoColor').append('Sahara beige');
-        } else if (infoColor == 'b2521f') {
-          $('.infoColor').append('Terracotta');
-        } else if (infoColor == '442c22') {
-          $('.infoColor').append('Cocoa brown');
-        } else if (infoColor == '0e0c0a') {
-          $('.infoColor').append('Black');
-        } else if (infoColor == 'eef0f0') {
-          $('.infoColor').append('White');
-        } else if (infoColor == '82888c') {
-          $('.infoColor').append('Telegrey');
-        } else if (infoColor == 'd34e81') {
-          $('.infoColor').append('Magenta');
+        function bodyColorWay() {
+          if (infoColor == 'feeb1d') {
+            $('.infoColor').append('Light yellow');
+          } else if (infoColor == 'cb1701') {
+            $('.infoColor').append('Light red');
+          } else if (infoColor == '5e3682') {
+            $('.infoColor').append('Deep violet');
+          } else if (infoColor == '60ccbc') {
+            $('.infoColor').append('Mint blue');
+          } else if (infoColor == '83888d') {
+            $('.infoColor').append('Middle grey');
+          } else if (infoColor == 'ecdc1a') {
+            $('.infoColor').append('Crocus yellow');
+          } else if (infoColor == 'fac615') {
+            $('.infoColor').append('Golden yellow');
+          } else if (infoColor == 'c00a16') {
+            $('.infoColor').append('Cardinal red');
+          } else if (infoColor == '8260a9') {
+            $('.infoColor').append('Purple');
+          } else if (infoColor == '6a0b35') {
+            $('.infoColor').append('Bordeaux');
+          } else if (infoColor == '708ea2') {
+            $('.infoColor').append('Dove blue');
+          } else if (infoColor == '42a5d6') {
+            $('.infoColor').append('Ice blue');
+          } else if (infoColor == '192643') {
+            $('.infoColor').append('Moonlight blue');
+          } else if (infoColor == '009999') {
+            $('.infoColor').append('Blue turquoise');
+          } else if (infoColor == '00476c') {
+            $('.infoColor').append('Blue green');
+          } else if (infoColor == '75ca3b') {
+            $('.infoColor').append('Lime green');
+          } else if (infoColor == '03903f') {
+            $('.infoColor').append('Light green');
+          } else if (infoColor == '004a2f') {
+            $('.infoColor').append('Dark green');
+          } else if (infoColor == 'b08550') {
+            $('.infoColor').append('Sahara beige');
+          } else if (infoColor == 'b2521f') {
+            $('.infoColor').append('Terracotta');
+          } else if (infoColor == '442c22') {
+            $('.infoColor').append('Cocoa brown');
+          } else if (infoColor == '0e0c0a') {
+            $('.infoColor').append('Black');
+          } else if (infoColor == 'eef0f0') {
+            $('.infoColor').append('White');
+          } else if (infoColor == '82888c') {
+            $('.infoColor').append('Telegrey');
+          } else if (infoColor == 'd34e81') {
+            $('.infoColor').append('Magenta');
+          }
         }
 
-        if (roofColor == 'feeb1d') {
-          $('.roofColor').append('Light yellow');
-        } else if (roofColor == 'cb1701') {
-          $('.roofColor').append('Light red');
-        } else if (roofColor == '5e3682') {
-          $('.roofColor').append('Deep violet');
-        } else if (roofColor == '60ccbc') {
-          $('.roofColor').append('Mint blue');
-        } else if (roofColor == '83888d') {
-          $('.roofColor').append('Middle grey');
-        } else if (roofColor == 'ecdc1a') {
-          $('.roofColor').append('Crocus yellow');
-        } else if (roofColor == 'fac615') {
-          $('.roofColor').append('Golden yellow');
-        } else if (roofColor == 'c00a16') {
-          $('.roofColor').append('Cardinal red');
-        } else if (roofColor == '8260a9') {
-          $('.roofColor').append('Purple');
-        } else if (roofColor == '6a0b35') {
-          $('.roofColor').append('Bordeaux');
-        } else if (roofColor == '708ea2') {
-          $('.roofColor').append('Dove blue');
-        } else if (roofColor == '42a5d6') {
-          $('.roofColor').append('Ice blue');
-        } else if (roofColor == '192643') {
-          $('.roofColor').append('Moonlight blue');
-        } else if (roofColor == '009999') {
-          $('.roofColor').append('Blue turquoise');
-        } else if (roofColor == '00476c') {
-          $('.roofColor').append('Blue green');
-        } else if (roofColor == '75ca3b') {
-          $('.roofColor').append('Lime green');
-        } else if (roofColor == '03903f') {
-          $('.roofColor').append('Light green');
-        } else if (roofColor == '004a2f') {
-          $('.roofColor').append('Dark green');
-        } else if (roofColor == 'b08550') {
-          $('.roofColor').append('Sahara beige');
-        } else if (roofColor == 'b2521f') {
-          $('.roofColor').append('Terracotta');
-        } else if (roofColor == '442c22') {
-          $('.roofColor').append('Cocoa brown');
-        } else if (roofColor == '0e0c0a') {
-          $('.roofColor').append('Black');
-        } else if (roofColor == 'eef0f0') {
-          $('.roofColor').append('White');
-        } else if (roofColor == '82888c') {
-          $('.roofColor').append('Telegrey');
-        } else if (roofColor == 'd34e81') {
-          $('.roofColor').append('Magenta');
+        function roofColorWay() {
+          if (roofColor == 'feeb1d') {
+            $('.roofColor').append('Light yellow');
+          } else if (roofColor == 'cb1701') {
+            $('.roofColor').append('Light red');
+          } else if (roofColor == '5e3682') {
+            $('.roofColor').append('Deep violet');
+          } else if (roofColor == '60ccbc') {
+            $('.roofColor').append('Mint blue');
+          } else if (roofColor == '83888d') {
+            $('.roofColor').append('Middle grey');
+          } else if (roofColor == 'ecdc1a') {
+            $('.roofColor').append('Crocus yellow');
+          } else if (roofColor == 'fac615') {
+            $('.roofColor').append('Golden yellow');
+          } else if (roofColor == 'c00a16') {
+            $('.roofColor').append('Cardinal red');
+          } else if (roofColor == '8260a9') {
+            $('.roofColor').append('Purple');
+          } else if (roofColor == '6a0b35') {
+            $('.roofColor').append('Bordeaux');
+          } else if (roofColor == '708ea2') {
+            $('.roofColor').append('Dove blue');
+          } else if (roofColor == '42a5d6') {
+            $('.roofColor').append('Ice blue');
+          } else if (roofColor == '192643') {
+            $('.roofColor').append('Moonlight blue');
+          } else if (roofColor == '009999') {
+            $('.roofColor').append('Blue turquoise');
+          } else if (roofColor == '00476c') {
+            $('.roofColor').append('Blue green');
+          } else if (roofColor == '75ca3b') {
+            $('.roofColor').append('Lime green');
+          } else if (roofColor == '03903f') {
+            $('.roofColor').append('Light green');
+          } else if (roofColor == '004a2f') {
+            $('.roofColor').append('Dark green');
+          } else if (roofColor == 'b08550') {
+            $('.roofColor').append('Sahara beige');
+          } else if (roofColor == 'b2521f') {
+            $('.roofColor').append('Terracotta');
+          } else if (roofColor == '442c22') {
+            $('.roofColor').append('Cocoa brown');
+          } else if (roofColor == '0e0c0a') {
+            $('.roofColor').append('Black');
+          } else if (roofColor == 'eef0f0') {
+            $('.roofColor').append('White');
+          } else if (roofColor == '82888c') {
+            $('.roofColor').append('Telegrey');
+          } else if (roofColor == 'd34e81') {
+            $('.roofColor').append('Magenta');
+          }
         }
 
-        if (retroColor == 'feeb1d') {
-          $('.retroColor').append('Light yellow');
-        } else if (retroColor == 'cb1701') {
-          $('.retroColor').append('Light red');
-        } else if (retroColor == '5e3682') {
-          $('.retroColor').append('Deep violet');
-        } else if (retroColor == '60ccbc') {
-          $('.retroColor').append('Mint blue');
-        } else if (retroColor == '83888d') {
-          $('.retroColor').append('Middle grey');
-        } else if (retroColor == 'ecdc1a') {
-          $('.retroColor').append('Crocus yellow');
-        } else if (retroColor == 'fac615') {
-          $('.retroColor').append('Golden yellow');
-        } else if (retroColor == 'c00a16') {
-          $('.retroColor').append('Cardinal red');
-        } else if (retroColor == '8260a9') {
-          $('.retroColor').append('Purple');
-        } else if (retroColor == '6a0b35') {
-          $('.retroColor').append('Bordeaux');
-        } else if (retroColor == '708ea2') {
-          $('.retroColor').append('Dove blue');
-        } else if (retroColor == '42a5d6') {
-          $('.retroColor').append('Ice blue');
-        } else if (retroColor == '192643') {
-          $('.retroColor').append('Moonlight blue');
-        } else if (retroColor == '009999') {
-          $('.retroColor').append('Blue turquoise');
-        } else if (retroColor == '00476c') {
-          $('.retroColor').append('Blue green');
-        } else if (retroColor == '75ca3b') {
-          $('.retroColor').append('Lime green');
-        } else if (retroColor == '03903f') {
-          $('.retroColor').append('Light green');
-        } else if (retroColor == '004a2f') {
-          $('.retroColor').append('Dark green');
-        } else if (retroColor == 'b08550') {
-          $('.retroColor').append('Sahara beige');
-        } else if (retroColor == 'b2521f') {
-          $('.retroColor').append('Terracotta');
-        } else if (retroColor == '442c22') {
-          $('.retroColor').append('Cocoa brown');
-        } else if (retroColor == '0e0c0a') {
-          $('.retroColor').append('Black');
-        } else if (retroColor == 'eef0f0') {
-          $('.retroColor').append('White');
-        } else if (retroColor == '82888c') {
-          $('.retroColor').append('Telegrey');
-        } else if (retroColor == 'd34e81') {
-          $('.retroColor').append('Magenta');
+        function retroColorWay() {
+          if (retroColor == 'feeb1d') {
+            $('.retroColor').append('Light yellow');
+          } else if (retroColor == 'cb1701') {
+            $('.retroColor').append('Light red');
+          } else if (retroColor == '5e3682') {
+            $('.retroColor').append('Deep violet');
+          } else if (retroColor == '60ccbc') {
+            $('.retroColor').append('Mint blue');
+          } else if (retroColor == '83888d') {
+            $('.retroColor').append('Middle grey');
+          } else if (retroColor == 'ecdc1a') {
+            $('.retroColor').append('Crocus yellow');
+          } else if (retroColor == 'fac615') {
+            $('.retroColor').append('Golden yellow');
+          } else if (retroColor == 'c00a16') {
+            $('.retroColor').append('Cardinal red');
+          } else if (retroColor == '8260a9') {
+            $('.retroColor').append('Purple');
+          } else if (retroColor == '6a0b35') {
+            $('.retroColor').append('Bordeaux');
+          } else if (retroColor == '708ea2') {
+            $('.retroColor').append('Dove blue');
+          } else if (retroColor == '42a5d6') {
+            $('.retroColor').append('Ice blue');
+          } else if (retroColor == '192643') {
+            $('.retroColor').append('Moonlight blue');
+          } else if (retroColor == '009999') {
+            $('.retroColor').append('Blue turquoise');
+          } else if (retroColor == '00476c') {
+            $('.retroColor').append('Blue green');
+          } else if (retroColor == '75ca3b') {
+            $('.retroColor').append('Lime green');
+          } else if (retroColor == '03903f') {
+            $('.retroColor').append('Light green');
+          } else if (retroColor == '004a2f') {
+            $('.retroColor').append('Dark green');
+          } else if (retroColor == 'b08550') {
+            $('.retroColor').append('Sahara beige');
+          } else if (retroColor == 'b2521f') {
+            $('.retroColor').append('Terracotta');
+          } else if (retroColor == '442c22') {
+            $('.retroColor').append('Cocoa brown');
+          } else if (retroColor == '0e0c0a') {
+            $('.retroColor').append('Black');
+          } else if (retroColor == 'eef0f0') {
+            $('.retroColor').append('White');
+          } else if (retroColor == '82888c') {
+            $('.retroColor').append('Telegrey');
+          } else if (retroColor == 'd34e81') {
+            $('.retroColor').append('Magenta');
+          }
         }
+
+        bodyColorWay();
+        roofColorWay();
+        retroColor();
 
         setTimeout(() => {
           let carWrap = $('.infoColor').text();
@@ -397,6 +408,8 @@ export class Tab5Page implements OnInit {
     setTimeout(() => {
       let aliasRaw: any;
       let aliasToggle: any;
+      let shadowRaw: any;
+      let shadowToggle: any;
 
       $('.alias').on('click', function () {
         aliasRaw = $(this).attr('value')!;
@@ -404,10 +417,20 @@ export class Tab5Page implements OnInit {
         window.location.reload();
       });
 
+      $('.shadow').on('click', function () {
+        shadowRaw = $(this).attr('value')!;
+        localStorage.setItem('shadow', shadowRaw);
+        window.location.reload();
+      });
+
       aliasToggle = localStorage.getItem('antiA');
       let alias = aliasToggle === 'true';
 
+      shadowToggle = localStorage.getItem('shadow');
+      let shadow = shadowToggle === 'true';
+
       let res: any;
+      let res2: any;
 
       function aliasing() {
         if (alias == true) {
@@ -419,21 +442,33 @@ export class Tab5Page implements OnInit {
         }
       }
 
+      function shadowFunc() {
+        if (shadow == true) {
+          res2 = 'ligada';
+          $('.shadowbtn1').hide();
+        } else {
+          res2 = 'desligada';
+          $('.shadowbtn2').hide();
+        }
+      }
+
       aliasing();
+      shadowFunc();
 
       $('#callAlias').append('O anti-serrilhado está ' + res);
+      $('#callShadow').append('A sombra está ' + res2);
 
       //Render
       let renderer = new THREE.WebGLRenderer({ antialias: alias });
       renderer.setSize(720, 1280);
       renderer.setClearColor(0x000000);
-      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.enabled = shadow;
 
       renderer.toneMapping = THREE.NeutralToneMapping;
 
       //Camera
       let camera = new THREE.PerspectiveCamera(
-        50,
+        55,
         window.innerWidth / window.innerHeight,
         0.1,
         15
@@ -452,9 +487,30 @@ export class Tab5Page implements OnInit {
       controls.enableDamping = false; //Coloca peso na camera
       controls.enablePan = false; //Permite arrastar o objeto
       controls.autoRotate = false; //Roda o objeto.
-      controls.minDistance = 4;
+      controls.minDistance = 6;
       controls.maxDistance = 12;
       controls.update();
+
+      let clock = new THREE.Clock();
+      let delta = 0;
+      let interval = 1 / 45;
+
+      let myReq: any;
+
+      function animate() {
+        myReq = requestAnimationFrame(animate);
+        delta += clock.getDelta();
+
+        if (delta > interval) {
+          renderer.render(scene, camera);
+
+          delta = delta % interval;
+
+          stats1.update();
+          stats2.update();
+          stats3.update();
+        }
+      }
 
       //Scene
       let scene: any = new THREE.Scene();
@@ -465,7 +521,7 @@ export class Tab5Page implements OnInit {
       light.distance = 20;
       light.angle = 0.4;
       light.penumbra = 0.5;
-      light.castShadow = true;
+      light.castShadow = shadow;
       scene.add(light);
 
       let dirlight = new THREE.DirectionalLight(0xffffff, 2);
@@ -493,7 +549,7 @@ export class Tab5Page implements OnInit {
         })
       );
       plane.rotation.x = -Math.PI / 2;
-      plane.receiveShadow = true;
+      plane.receiveShadow = shadow;
       scene.add(plane);
 
       //TEXTURE EM DESENVOLVIMENTO
@@ -514,9 +570,9 @@ export class Tab5Page implements OnInit {
 
       loader.load(carUrl, (gltf) => {
         let mesh = gltf.scene;
-        mesh.castShadow = true;
+        mesh.castShadow = shadow;
         mesh.traverse((child) => {
-          child.castShadow = true;
+          child.castShadow = shadow;
           let vinils: any = localStorage.getItem('colorGroup');
           let vinil: any = vinils.split(',');
           let body = child.getObjectByName('body');
@@ -648,22 +704,21 @@ export class Tab5Page implements OnInit {
       $('canvas').css('width', '100vw');
       $('canvas').css('height', '100vh');
 
-      let clock = new THREE.Clock();
-      let delta = 0;
-      let interval = 1 / 45;
-
-      let myReq: any;
-
-      function animate() {
-        myReq = requestAnimationFrame(animate);
-        delta += clock.getDelta();
-
-        if (delta > interval) {
-          renderer.render(scene, camera);
-
-          delta = delta % interval;
-        }
-      }
+      var stats1 = new Stats();
+      stats1.showPanel(0);
+      stats1.dom.style.cssText =
+        'position:absolute;top:0px;left:60px;z-index:98;';
+      document.body.appendChild(stats1.dom);
+      var stats2 = new Stats();
+      stats2.showPanel(1);
+      stats2.dom.style.cssText =
+        'position:absolute;top:0px;left:140px;z-index:98;';
+      document.body.appendChild(stats2.dom);
+      var stats3 = new Stats();
+      stats3.showPanel(2);
+      stats3.dom.style.cssText =
+        'position:absolute;top:0px;left:220px;z-index:98;';
+      document.body.appendChild(stats3.dom);
 
       //Clear
       $('.showroom-btn').on('click', function () {
@@ -671,6 +726,9 @@ export class Tab5Page implements OnInit {
         $('canvas').remove();
         $('renderer').remove();
         cancelAnimationFrame(myReq);
+        stats1 = null!;
+        stats2 = null!;
+        stats3 = null!;
       });
 
       $('.showroom-menu').on('click', function () {
@@ -690,6 +748,9 @@ export class Tab5Page implements OnInit {
             $('canvas').remove();
             $('renderer').remove();
             cancelAnimationFrame(myReq);
+            stats1 = null!;
+            stats2 = null!;
+            stats3 = null!;
             history.go(-1);
           } else if (showingMenu == true) {
             $('.menu-page').hide();
